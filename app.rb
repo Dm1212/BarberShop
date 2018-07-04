@@ -46,7 +46,8 @@ post '/visit' do
 	# хеш
 	hh = { 	:username => 'Введите имя',
 			:phone => 'Введите телефон',
-			:datetime => 'Введите дату и время' }
+			:datetime => 'Введите дату и время',
+		 }
 
 	@error = hh.select {|key,_| params[key] == ""}.values.join(", ")
 
@@ -71,6 +72,13 @@ post '/visit' do
 
 end
 
+get '/contacts' do
+	erb :contacts
+end
+
 get '/showusers' do
-	erb "Hello"
+	db = get_db
+	@results = db.execute 'select * from Users order by id desc'
+
+	erb :showusers	
 end
