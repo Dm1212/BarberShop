@@ -24,7 +24,7 @@ configure do
 end
 
 get '/' do
-	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
+	erb "ЧОУ ВО «Евразийский Институт «Тигр»"			
 end
 
 get '/about' do
@@ -81,4 +81,8 @@ get '/showusers' do
 	@results = db.execute 'select * from Users order by id desc'
 
 	erb :showusers	
+end
+
+get '/abit' do
+	erb :abit
 end
